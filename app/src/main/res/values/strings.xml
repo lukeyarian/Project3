@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Project3</string>
+    <string name="easy">Easy</string>
+    <string name="number_of_questions">Number of Questions</string>
+    <string name="addition">Addition</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="division">Division</string>
+    <string name="hard">Hard</string>
+    <string name="medium">Medium</string>
+    <string name="start">Start</string>
+    <string name="select_difficulty">Select difficulty:</string>
+    <string name="select_operation">Select operation:</string>
+    <string name="question_will_be_here">Question will be here</string>
+    <string name="what_is">What is...</string>
+    <string name="submit_answer">Submit Answer</string>
+    <string name="your_answer">Your Answer...</string>
 </resources>

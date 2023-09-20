@@ -4,15 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <EditText
+        android:id="@+id/numQuestionsET"
+        android:layout_width="352dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="132dp"
+        android:hint="Number of Questions"
+        android:inputType="number"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="347dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="28dp"
+        android:text="START"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints,VisualLintButtonSize" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="360dp"
+        android:layout_height="393dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="388dp"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/pictureforproject3"
+        tools:ignore="MissingConstraints,VisualLintBounds" />
+
+    <TextView
+        android:layout_width="172dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="444dp"
+        android:text="@string/select_difficulty"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/difficultyRG"
+        android:layout_width="175dp"
+        android:layout_height="182dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="256dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/easy"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Easy" />
+
+        <RadioButton
+            android:id="@+id/medium"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Medium" />
+
+        <RadioButton
+            android:id="@+id/hard"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="Hard" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="172dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginBottom="444dp"
+        android:text="@string/select_operation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/operationRG"
+        android:layout_width="140dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="248dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/addition"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Addition" />
+
+        <RadioButton
+            android:id="@+id/subtraction"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Subtraction" />
+
+        <RadioButton
+            android:id="@+id/multiplication"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Multiplication" />
+
+        <RadioButton
+            android:id="@+id/division"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Division"
+            tools:ignore="VisualLintBounds" />
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
