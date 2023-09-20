@@ -21,21 +21,19 @@ class QuizActivity : AppCompatActivity() {
         val operation = intent.getStringExtra("operation") ?: "addition"
         total = intent.getIntExtra("numQuestions", 1)
 
-        val questionTextView = findViewById<TextView>(R.id.questionTV)
-        val answerEditText = findViewById<EditText>(R.id.answerET)
+        val questionTV = findViewById<TextView>(R.id.questionTV)
+        val answerET = findViewById<EditText>(R.id.answerET)
         val submit = findViewById<Button>(R.id.submit)
 
         submit.setOnClickListener {
-            val userAnswer = answerEditText.text.toString().toIntOrNull()
-
+            val userAnswer = answerET.text.toString().toIntOrNull()
             if (userAnswer == correctAnswer) {
                 correctAnswers++
             }
-
             current++
 
             if (current < total) {
-                generateQuestion(difficulty, operation, questionTextView, answerEditText)
+                generateQuestion(difficulty, operation, questionTV, answerET)
             } else {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("score", correctAnswers)
@@ -44,11 +42,12 @@ class QuizActivity : AppCompatActivity() {
             }
         }
 
-        generateQuestion(difficulty, operation, questionTextView, answerEditText)
+        generateQuestion(difficulty, operation, questionTV, answerET)
     }
 
     private fun generateQuestion(difficulty: String, operation: String, questionView: TextView, answerView: EditText) {
         val maxOperand = when (difficulty) {
+            "easy" -> 10
             "medium" -> 25
             "hard" -> 50
             else -> 10
