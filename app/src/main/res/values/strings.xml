@@ -15,4 +15,16 @@
     <string name="what_is">What is...</string>
     <string name="submit_answer">Submit Answer</string>
     <string name="your_answer">Your Answer...</string>
+    <string name="question">Question</string>
+    <string name="your_score_x_out_of_y">Your score: X out of Y</string>
+    <string name="do_it_again">Do it again</string>
+    <string name="number_of_questions1">Number of Questions</string>
+    <string name="start1">START</string>
+    <string name="easy1">Easy</string>
+    <string name="medium1">Medium</string>
+    <string name="hard1">Hard</string>
+    <string name="addition1">Addition</string>
+    <string name="subtraction1">Subtraction</string>
+    <string name="multiplication1">Multiplication</string>
+    <string name="division1">Division</string>
 </resources>

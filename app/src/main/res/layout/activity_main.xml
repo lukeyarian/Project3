@@ -12,7 +12,7 @@
         android:layout_height="93dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="132dp"
-        android:hint="Number of Questions"
+        android:hint="@string/number_of_questions1"
         android:inputType="number"
         android:textColorHint="#8D6E63"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="106dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="28dp"
-        android:text="START"
+        android:text="@string/start1"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,19 +67,19 @@
             android:id="@+id/easy"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Easy" />
+            android:text="@string/easy1" />
 
         <RadioButton
             android:id="@+id/medium"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Medium" />
+            android:text="@string/medium1" />
 
         <RadioButton
             android:id="@+id/hard"
             android:layout_width="80dp"
             android:layout_height="48dp"
-            android:text="Hard" />
+            android:text="@string/hard1" />
     </RadioGroup>
 
     <TextView
@@ -106,25 +106,25 @@
             android:id="@+id/addition"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Addition" />
+            android:text="@string/addition1" />
 
         <RadioButton
             android:id="@+id/subtraction"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Subtraction" />
+            android:text="@string/subtraction1" />
 
         <RadioButton
             android:id="@+id/multiplication"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Multiplication" />
+            android:text="@string/multiplication1" />
 
         <RadioButton
             android:id="@+id/division"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Division"
+            android:text="@string/division1"
             tools:ignore="VisualLintBounds" />
     </RadioGroup>
 

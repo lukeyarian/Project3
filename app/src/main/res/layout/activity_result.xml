@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:gravity="center"
-        android:text="Your score: X out of Y"
+        android:text="@string/your_score_x_out_of_y"
         android:textSize="30sp" />
 
     <Button
         android:id="@+id/retry"
         android:layout_width="match_parent"
         android:layout_height="81dp"
-        android:text="Do it again"
+        android:text="@string/do_it_again"
         android:textSize="24sp"/>
 
 </LinearLayout>

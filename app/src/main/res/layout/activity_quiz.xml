@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="121dp"
         android:textSize="40sp"
-        android:text="Question"/>
+        android:text="@string/question"/>
 
     <EditText
         android:id="@+id/answerET"
