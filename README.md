@@ -19,6 +19,8 @@ The following **extensions** are implemented:
 
 ## Video Walkthrough
 
+![project3walkthrough2](https://github.com/lukeyarian/Project3/assets/70252777/c318f556-580e-4a6f-bcbd-383295306860)
+
 ## Notes
 
 One of the main challenges I faced was the inital learning on how to transfer data from screen to screen as the app flows. I learned about "Intent" which basically does exactly what I wanted it to do and passes the information from activity to activity.
