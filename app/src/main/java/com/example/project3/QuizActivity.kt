@@ -6,78 +6,80 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.random.Random
-
 class QuizActivity : AppCompatActivity() {
-    private var difficulty: Int = 0
-    private var operation: Int = 0
-    private var numQuestions: Int = 0
-    private var currentScore = 0
-    private var currentQuestion = 1
-    private var correctAnswer: Int = 0
+
+    private var current = 0
+    private var correctAnswers = 0
+    private var total = 0
+    private var correctAnswer = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        val questionTV = findViewById<TextView>(R.id.questionTV)
-        val answerET = findViewById<EditText>(R.id.answerET)
+        val difficulty = intent.getStringExtra("difficulty") ?: "easy"
+        val operation = intent.getStringExtra("operation") ?: "addition"
+        total = intent.getIntExtra("numQuestions", 1)
+
+        val questionTextView = findViewById<TextView>(R.id.questionTV)
+        val answerEditText = findViewById<EditText>(R.id.answerET)
         val submit = findViewById<Button>(R.id.submit)
 
-        difficulty = intent.getIntExtra("difficulty", -1)
-        operation = intent.getIntExtra("operation", -1)
-        numQuestions = intent.getIntExtra("numQuestions", 1)
-
-        generateQuestion(questionTV)
-
         submit.setOnClickListener {
-            val userAnswer = answerET.text.toString().toIntOrNull() ?: 0
-            if (userAnswer == correctAnswer) currentScore++
+            val userAnswer = answerEditText.text.toString().toIntOrNull()
 
-            if (currentQuestion < numQuestions) {
-                currentQuestion++
-                generateQuestion(questionTV)
+            if (userAnswer == correctAnswer) {
+                correctAnswers++
+            }
+
+            current++
+
+            if (current < total) {
+                generateQuestion(difficulty, operation, questionTextView, answerEditText)
             } else {
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("score", currentScore)
-                intent.putExtra("total", numQuestions)
+                intent.putExtra("score", correctAnswers)
+                intent.putExtra("total", total)
                 startActivity(intent)
             }
         }
+
+        generateQuestion(difficulty, operation, questionTextView, answerEditText)
     }
 
-    private fun generateQuestion(questionTV: TextView) {
-        val limit = when(difficulty) {
-            R.id.easy -> 20
-            R.id.medium -> 50
-            R.id.hard -> 100
-            else -> 20
+    private fun generateQuestion(difficulty: String, operation: String, questionView: TextView, answerView: EditText) {
+        val maxOperand = when (difficulty) {
+            "medium" -> 25
+            "hard" -> 50
+            else -> 10
         }
 
-        val op1 = Random.nextInt(limit)
-        val op2 = Random.nextInt(limit)
+        val operand1 = (1..maxOperand).random()
+        val operand2 = (1..maxOperand).random()
 
-        when(operation) {
-            R.id.addition -> {
-                correctAnswer = op1 + op2
-                questionTV.text = "$op1 + $op2"
+        correctAnswer = when (operation) {
+            "addition" -> {
+                questionView.text = "$operand1 + $operand2 = ?"
+                operand1 + operand2
             }
-            R.id.subtraction -> {
-                correctAnswer = op1 - op2
-                questionTV.text = "$op1 - $op2"
+            "subtraction" -> {
+                questionView.text = "$operand1 - $operand2 = ?"
+                operand1 - operand2
             }
-            R.id.multiplication -> {
-                correctAnswer = op1 * op2
-                questionTV.text = "$op1 × $op2"
+            "multiplication" -> {
+                questionView.text = "$operand1 × $operand2 = ?"
+                operand1 * operand2
             }
-            R.id.division -> {
-                if (op2 != 0) {
-                    correctAnswer = op1 / op2
-                    questionTV.text = "$op1 ÷ $op2"
-                } else {
-                    generateQuestion(questionTV) // recursive call to avoid division by zero
-                }
+            "division" -> {
+                questionView.text = "$operand1 ÷ $operand2 = ?"
+                operand1 / operand2
+            }
+            else -> {
+                questionView.text = "$operand1 + $operand2 = ?"
+                operand1 + operand2
             }
         }
+
+        answerView.text.clear()
     }
 }
