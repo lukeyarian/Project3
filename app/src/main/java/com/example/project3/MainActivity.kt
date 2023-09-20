@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         val numQuestionsET = findViewById<EditText>(R.id.numQuestionsET)
         val start = findViewById<Button>(R.id.start)
 
+        //This is the button that will trigger the transition to the next activity, storing all of the given information
+        //and transferring it over to the Quiz
         start.setOnClickListener {
             val difficulty = when(difficultyRG.checkedRadioButtonId) {
                 R.id.easy -> "easy"
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
             //This is what I have learned about passing information between activities, the .java at the end is confusing
             //but it is necessary to turn the KClass into a Class and make the Intent information passing work.
+            //Overall, very helpful
             val intent = Intent(this, QuizActivity::class.java)
             intent.putExtra("difficulty", difficulty)
             intent.putExtra("operation", operation)

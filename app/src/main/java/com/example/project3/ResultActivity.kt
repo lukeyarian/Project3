@@ -18,8 +18,10 @@ class ResultActivity : AppCompatActivity() {
         val score = intent.getIntExtra("score", 0)
         val total = intent.getIntExtra("total", 0)
 
+        //Display total score... Main component of activity
         scoreTV.text = "Your score: $score out of $total"
 
+        //This is the button that lets you restart the quiz
         retry.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

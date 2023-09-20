@@ -25,6 +25,7 @@ class QuizActivity : AppCompatActivity() {
         val answerET = findViewById<EditText>(R.id.answerET)
         val submit = findViewById<Button>(R.id.submit)
 
+        //Multiple functions, it both saves your correct or incorrect answer, and triggers the next question to be shown
         submit.setOnClickListener {
             val userAnswer = answerET.text.toString().toIntOrNull()
             if (userAnswer == correctAnswer) {
@@ -45,6 +46,7 @@ class QuizActivity : AppCompatActivity() {
         generateQuestion(difficulty, operation, questionTV, answerET)
     }
 
+    //This is the function that will actually make the questions based on the answers from the previous activity.
     private fun generateQuestion(difficulty: String, operation: String, questionView: TextView, answerView: EditText) {
         val maxOperand = when (difficulty) {
             "easy" -> 10
