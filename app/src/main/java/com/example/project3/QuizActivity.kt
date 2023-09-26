@@ -16,7 +16,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
+//
         val difficulty = intent.getStringExtra("difficulty") ?: "easy"
         val operation = intent.getStringExtra("operation") ?: "addition"
         total = intent.getIntExtra("numQuestions", 1)
