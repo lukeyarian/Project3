@@ -1,51 +1,54 @@
 package com.example.project3
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
+
+    private val request = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val difficultyRG = findViewById<RadioGroup>(R.id.difficultyRG)
-        val operationRG = findViewById<RadioGroup>(R.id.operationRG)
+        val startButton = findViewById<Button>(R.id.start)
+        //val resultTextView = findViewById<TextView>(R.id.resultTV)
         val numQuestionsET = findViewById<EditText>(R.id.numQuestionsET)
-        val start = findViewById<Button>(R.id.start)
 
-        //This is the button that will trigger the transition to the next activity, storing all of the given information
-        //and transferring it over to the Quiz
-        start.setOnClickListener {
-            val difficulty = when(difficultyRG.checkedRadioButtonId) {
-                R.id.easy -> "easy"
-                R.id.medium -> "medium"
-                R.id.hard -> "hard"
-                else -> "easy"
-            }
-
-            val operation = when(operationRG.checkedRadioButtonId) {
-                R.id.addition -> "addition"
-                R.id.subtraction -> "subtraction"
-                R.id.multiplication -> "multiplication"
-                R.id.division -> "division"
-                else -> "addition"
-            }
-
-            val numQuestions = numQuestionsET.text.toString().toIntOrNull() ?: 0
-
-
-            //This is what I have learned about passing information between activities, the .java at the end is confusing
-            //but it is necessary to turn the KClass into a Class and make the Intent information passing work.
-            //Overall, very helpful
+        startButton.setOnClickListener {
+            val numQuestions = numQuestionsET.text.toString().toInt()
             val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("difficulty", difficulty)
-            intent.putExtra("operation", operation)
             intent.putExtra("numQuestions", numQuestions)
-            startActivity(intent)
+            startActivityForResult(intent, request)
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == request && resultCode == Activity.RESULT_OK) {
+            val correctAnswers = data?.getIntExtra(QuizActivity.extraCorrect, 0) ?: 0
+            val totalQuestions = data?.getIntExtra(QuizActivity.extraTotal, 1) ?: 1
+
+            val percentage = (correctAnswers.toDouble() / totalQuestions) * 100
+            val resultTextView = findViewById<TextView>(R.id.resultTV)
+            if (percentage >= 80) {
+                resultTextView.setTextColor(Color.GREEN)
+                resultTextView.text = "Congrats! You scored $correctAnswers out of $totalQuestions."
+            } else {
+                resultTextView.setTextColor(Color.RED)
+                resultTextView.text = "Sorry, You only scored $correctAnswers out of $totalQuestions."
+            }
         }
     }
 }
