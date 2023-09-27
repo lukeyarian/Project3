@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         //val resultTextView = findViewById<TextView>(R.id.resultTV)
         val numQuestionsET = findViewById<EditText>(R.id.numQuestionsET)
 
+        //Start button sending data to other activity. Why use fragments over this? -10 then
         startButton.setOnClickListener {
             val numQuestions = numQuestionsET.text.toString().toInt()
             val intent = Intent(this, QuizActivity::class.java)
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     @Deprecated("Deprecated in Java")
+    //This is basically replacing the ResultActivity with information being sent back from the QuizActivity
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

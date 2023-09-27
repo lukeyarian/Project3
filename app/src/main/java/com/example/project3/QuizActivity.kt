@@ -35,6 +35,7 @@ class QuizActivity : AppCompatActivity() {
         val answerET = findViewById<EditText>(R.id.answerET)
         val submit = findViewById<Button>(R.id.submit)
 
+        //Lots added to the submit button. Toasts and stores data. Then passes that data at the end back to Main
         submit.setOnClickListener {
             val userAnswer = answerET.text.toString().toIntOrNull()
             val isCorrect = userAnswer == correctAnswer
@@ -62,6 +63,7 @@ class QuizActivity : AppCompatActivity() {
         generateQuestion(difficulty, operation, questionTV, answerET)
     }
 
+    //Function that... plays the sounds based on the answer given by the user
     private fun playSound(isCorrect: Boolean) {
         if (isCorrect){
             val mediaPlayer = MediaPlayer.create(this, R.raw.correct)
