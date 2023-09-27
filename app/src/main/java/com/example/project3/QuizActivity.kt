@@ -1,10 +1,10 @@
 package com.example.project3
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.provider.MediaStore.Audio.Media
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -78,6 +78,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     //This is the function that will actually make the questions based on the answers from the previous activity.
+    @SuppressLint("SetTextI18n")
     private fun generateQuestion(difficulty: String, operation: String, questionView: TextView, answerView: EditText) {
         val maxOperand = when (difficulty) {
             "easy" -> 10
