@@ -27,7 +27,8 @@ The following **extensions** are implemented:
 ## Notes
 
 One of the main challenges I faced was the inital learning on how to transfer data from screen to screen as the app flows. I learned about "Intent" which basically does exactly what I wanted it to do and passes the information from activity to activity.
-NEW: Adding the sounds was quite easy since I just uploaded them into a "raw" folder. Cutting out the Result Activity took a bit more effort. Everything seems to run more smoothly now and the app is more efficient.
+NEW: Adding the sounds was quite easy since I just uploaded them into a "raw" folder. Cutting out the Result Activity took a bit more effort. Everything seems to run more smoothly now and the app is more efficient. One of the main issues I have with my app is 
+the double clicking issue. Sometimes when I click, it accidently clicks twice and I automatically get the following question incorrect.
 
 ## License
 
