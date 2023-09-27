@@ -1,4 +1,4 @@
-# Project 3: Simple Arithmetic Application
+# Project 4: Simple Arithmetic Application
 
 This app is meant to help kids practice arithmetic. They can choose between difficulty levels, and areas of mathematics like addition, subtraction, etc. The app flows through multiple different screens and carries data from activity to activity.
 
@@ -12,6 +12,9 @@ The following **required** functionality is completed:
 * Proper layout
 * Generates multiple questions on "done" button press depending on amount
 * Shows score at the end of the quiz
+* NEW: Plays a sound when the user gets correct or incorrect answer
+* NEW: Now goes back to the main screen at the end of the quiz
+* NEW: Shows quiz results on the main screen
 
 The following **extensions** are implemented:
 
@@ -19,11 +22,13 @@ The following **extensions** are implemented:
 
 ## Video Walkthrough
 
-![project3walkthrough2](https://github.com/lukeyarian/Project3/assets/70252777/c318f556-580e-4a6f-bcbd-383295306860)
+![project4walkthrough](https://github.com/lukeyarian/Project3/assets/70252777/637bc8d3-c2a6-4525-81c2-d3b2f9680875)
 
 ## Notes
 
 One of the main challenges I faced was the inital learning on how to transfer data from screen to screen as the app flows. I learned about "Intent" which basically does exactly what I wanted it to do and passes the information from activity to activity.
+NEW: Adding the sounds was quite easy since I just uploaded them into a "raw" folder. Cutting out the Result Activity took a bit more effort. Everything seems to run more smoothly now and the app is more efficient. One of the main issues I have with my app is 
+the double clicking issue. Sometimes when I click, it accidently clicks twice and I automatically get the following question incorrect.
 
 ## License
 
